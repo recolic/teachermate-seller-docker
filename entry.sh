@@ -4,12 +4,12 @@
 
 git_="$1"
 mkdir -p ./keys ./log &&
-    touch ./keys/keys.list &&
-    ln -s ./keys/keys.list ./src/keys.list &&
     git clone "$git_" src &&
-    unbuffer python3 src/daemon.py >> ./log/tm.log 2>&1
+    touch ./keys/keys.list &&
+    ln -s $(pwd)/keys/keys.list ./src/keys.list &&
+    cd /app/src &&
+    unbuffer python3 ./daemon.py 80 >> ../log/tm.log 2>&1
 
 exit $?
-
 
 
