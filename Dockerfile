@@ -5,7 +5,7 @@ ARG GIT_REPO_TM_WEB
 
 EXPOSE 80/tcp
 
-RUN apt update -y && apt install -y git expect
+RUN apt update -y && apt install -y git expect fish
 RUN mkdir /app /app/log /app/keys
 VOLUME /app/log
 VOLUME /app/keys
